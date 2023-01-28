@@ -1,0 +1,26 @@
+public int deepestLeavesSum(TreeNode root) {
+
+       
+        int res=0,i;
+       Queue<TreeNode> q=new LinkedList<>();
+       q.add(root);
+       while(q.size()>0){
+           res=0;
+           for(i=q.size()-1;i>=0;i--){
+               TreeNode v=q.poll();
+               res+=v.val;
+               if(v.left!=null){
+                   q.add(v.left);
+              }
+               if(v.right!=null){
+                   q.add(v.right);
+               }
+           }
+       }
+
+       return res;
+       
+  
+        
+    }
+}
