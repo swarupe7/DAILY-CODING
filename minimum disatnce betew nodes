@@ -1,0 +1,32 @@
+class Solution {
+    public void helper(TreeNode root,ArrayList<Integer> a){
+        if(root==null){
+            return ;
+        }
+         helper(root.left,a);
+           a.add(root.val);
+          helper(root.right,a);
+
+    }
+    public int minDiffInBST(TreeNode root) {
+        if(root==null){
+            return -1;
+        }
+        
+        ArrayList<Integer> a=new ArrayList<>();
+        helper(root,a);
+        if(a.size()==1){
+            return a.get(0);
+        }
+        int min=a.get(1)-a.get(0);
+        for(int i=0;i<a.size()-1;i++){
+            int v=a.get(i+1)-a.get(i);
+            if(v<min){
+                min=v;
+            }
+        }
+        return min;
+
+        
+    }
+}
