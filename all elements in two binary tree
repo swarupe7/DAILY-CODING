@@ -1,0 +1,19 @@
+lass Solution {
+    public void helper(TreeNode root,ArrayList<Integer> a){
+        if(root==null){
+            return ;
+        }
+         helper(root.left,a);
+         a.add(root.val);
+          helper(root.right,a);
+
+    }
+    public List<Integer> getAllElements(TreeNode root1, TreeNode root2) {
+        ArrayList<Integer> a=new ArrayList<>();
+        helper(root1,a);
+        helper(root2,a);
+        Collections.sort(a);
+        return a;
+        
+    }
+}
